@@ -302,6 +302,18 @@ app.get("/tarot/love-three", (req, res) => {
   });
 });
 
+// 🔮 Geçmiş / Şimdi / Gelecek için özel açılım (web'deki /spread sayfası buraya vuruyor)
+app.get("/tarot/spread", (req, res) => {
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 3);
+
+  res.json({
+    type: "past-present-future",
+    cards: selected,
+    count: selected.length,
+  });
+});
+
 // 🔮 Günün kartı: tek kart
 app.get("/tarot/daily", (req, res) => {
   const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
