@@ -1,29 +1,10 @@
-﻿const express = require("express");
-const cors = require("cors");
+﻿const cors = require("cors");
 
 const app = express();
 const PORT = 3000;
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
-  "https://frontend-demo-3bo9kgtvw-neyzentefik-7239s-projects.vercel.app",
-  "https://artaut-tarot-web-site-kvcf.vercel.app",
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true); // curl / Postman gibi
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("CORS tarafından engellendi: " + origin));
-      }
-    },
-  })
-);
+// Geliştirme / demo için: tüm origin'lere izin ver
+app.use(cors());
 
 // 🔮 22 Büyük Arkana – Genel / Aşk / Kariyer + Görsel
 const tarotDeck = [
