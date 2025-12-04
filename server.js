@@ -8,6 +8,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
   "https://frontend-demo-3bo9kgtvw-neyzentefik-7239s-projects.vercel.app",
+  "https://artaut-tarot-web-site-kvcf.vercel.app",
 ];
 
 app.use(
