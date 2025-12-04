@@ -323,6 +323,79 @@ app.get("/tarot/daily", (req, res) => {
     card,
   });
 });
+// -----------------------------------------------
+// 🔮 Ek Tarot Açılımları (5, 6, 7 Kart + Sağlık)
+// -----------------------------------------------
+
+// 5 Kart – Haç Açılımı
+app.get("/tarot/cross-five", (req, res) => {
+  const intent = req.query.intent || "self";
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 5);
+
+  res.json({
+    type: "cross-five",
+    intent,
+    cards: selected,
+    count: selected.length,
+  });
+});
+
+// 7 Kart – Kader Açılımı
+app.get("/tarot/fate-seven", (req, res) => {
+  const intent = req.query.intent || "self";
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 7);
+
+  res.json({
+    type: "fate-seven",
+    intent,
+    cards: selected,
+    count: selected.length,
+  });
+});
+
+// 5 Kart – Aşk Analizi
+app.get("/tarot/love-five", (req, res) => {
+  const intent = req.query.intent || "self";
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 5);
+
+  res.json({
+    type: "love-five",
+    intent,
+    cards: selected,
+    count: selected.length,
+  });
+});
+
+// 6 Kart – Kariyer Açılımı
+app.get("/tarot/career-six", (req, res) => {
+  const intent = req.query.intent || "self";
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 6);
+
+  res.json({
+    type: "career-six",
+    intent,
+    cards: selected,
+    count: selected.length,
+  });
+});
+
+// 5 Kart – Sağlık Açılımı
+app.get("/tarot/health-five", (req, res) => {
+  const intent = req.query.intent || "self";
+  const shuffled = [...tarotDeck].sort(() => Math.random() - 0.5);
+  const selected = shuffled.slice(0, 5);
+
+  res.json({
+    type: "health-five",
+    intent,
+    cards: selected,
+    count: selected.length,
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`API listening on http://localhost:${PORT}`);
